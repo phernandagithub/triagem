@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triagem Resultados</title>
+    <meta name="author" content="UAI Health - PROZ DEV">
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+<h1> UAI HEALTH - DADOS</h1>
+<br><br><br>
+<h3>Dados de Triagem do Paciente</h3>
+
+<div id="dadospaciente"></div>
+
+<script>
+
+    const nome = sessionStorage.getItem('nome'); 
+    const cpf = sessionStorage.getItem('cpf'); 
+    const sintomas = sessionStorage.getItem('sintomas');
+    if (nome && cpf && sintomas) {
+    document.getElementById('dadospaciente').innerHTML = `
+    <p><strong>Nome:</strong> ${nome}</p>
+    <p><strong>CPF:</strong> ${cpf}</p>
+    <p><strong>Sintomas:</strong> ${sintomas}</p>`; 
+    }
+    else{
+    document.getElementById('dadospaciente').innerHTML = '<p>Dados não encontrados.</p>';
+    }
+
+</script>
+<br><br>
+<button onclick="imprimirPagina()">Imprimir Informações</button> 
+<script> function imprimirPagina() { window.print(); 
+
+} 
+</script>
+   
+</html>

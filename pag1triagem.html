@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triagem</title>
+    <meta name="author" content="UAI Health - PROZ DEV">
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+ <h1> UAI HEALTH - TRIAGEM</h1>
+ <br><br><br>
+ <h3>Informações do Paciente</h3>
+
+    <!-- Formulário para entrada de dados -->
+ 
+ Nome Completo: <input id="nome"><br><br>
+ CPF (somente números):<br><input id="cpf"><br><br>
+ Sintomas:<br> <input id="sintomas" style="width: 300px; height: 100px"> <br><br>
+<button onclick="verificarCadastro()">Verificar</button>
+<div id="resultados"></div>
+
+    <script>
+        // Função para verificar nome, cpf e sintomas
+        function verificarCadastro() {
+            // Limpar resultados anteriores
+            const resultadosDiv = document.getElementById('resultados');
+            resultadosDiv.innerHTML = '';
+
+            // Obter valores de entrada
+            const nome =document.getElementById('nome').value;
+            const cpf =document.getElementById('cpf').value;
+            const sintomas =document.getElementById('sintomas').value;
+
+            
+              if(nome.length >= 3 && sintomas.length >= 5 && sintomas.length <= 100 && cpf.length === 11 ){
+              sessionStorage.setItem("nome", nome);
+              sessionStorage.setItem("cpf", cpf);
+              sessionStorage.setItem("sintomas", sintomas);
+              window.location.href = "pag2triagem.html";
+              }
+                else {
+                    alert("ACESSO NEGADO. VERIIQUE AS INFORMAÇÕES!")
+                }
+        }
+    </script>
+</body>
+</html>
